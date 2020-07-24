@@ -7,6 +7,13 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Features
 
+* 初始化项目，根据最新文档更新api调用 ([133a56b](https://github.com/imbooo/dingtalk.js/commit/133a56b66870cd76d4d03f0bf228c44ac471f4b1))
+
+## 0.1.0 (2020-07-24)
+
+
+### Features
+
 * add auth.scopes ([#25](http://github.com//undefined/issues/25)) ([d0b9714](http://github.com///commit/d0b9714f6d9a763c3d553eeda71308c98d62e77f))
 * add department.listSubDepartmentIds() and department.listParentDepartmentIds() ([#22](http://github.com//undefined/issues/22)) ([e2e6931](http://github.com///commit/e2e69319f0a6953ed0da916b616d8d8e1e1b8406))
 * add redis support ([#19](http://github.com//undefined/issues/19)) ([6edc697](http://github.com///commit/6edc6978f75eed8c860078c6ec724d9a4e5b8e17))
