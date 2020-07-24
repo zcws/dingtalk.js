@@ -1,0 +1,48 @@
+{
+  "name": "dingtalk.node",
+  "version": "0.1.0",
+  "description": "dingTalk node sdk",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "agentkeepalive": "^3.4.1",
+    "formstream": "^1.1.0",
+    "is-type-of": "^1.2.0",
+    "p-all": "^3.0.0",
+    "urllib": "^2.29.0",
+    "utility": "^1.14.0"
+  },
+  "devDependencies": {
+    "@types/mocha": "^8.0.0",
+    "@types/node": "^14.0.25",
+    "mocha": "^8.0.1",
+    "mockjs": "^1.1.0",
+    "power-assert": "^1.6.0",
+    "standard-version": "^8.0.2",
+    "supertest": "^4.0.2",
+    "typescript": "^3.9.7"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "scripts": {
+    "build": "rm -rf dist && tsc -b",
+    "test": "mocha 'test/**/*spec.js' --no-timeout",
+    "lint": "tslint -p tsconfig.json -c tslint.json",
+    "sv": "standard-version -r"
+  },
+  "ci": {
+    "version": "8, 10"
+  },
+  "keywords": [
+    "dingtalk"
+  ],
+  "repository": {
+  },
+  "bugs": {
+  },
+  "author": "imbooo <imboooo@163.com>",
+  "license": "MIT"
+}
