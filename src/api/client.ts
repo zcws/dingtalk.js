@@ -382,7 +382,7 @@ export class Client {
    * @param {String} url 当前页面的地址
    * @param {Object} [opts] 其他参数, 包括 noncestr, timestamp
    */
-  async getJSApiConfig(url: string, opts): Promise<IJSApiConfig> {
+  async getJSApiConfig(url: string, opts?): Promise<IJSApiConfig> {
     const ticket = await this.getJSApiTicket();
     const signObj = Object.assign({
       jsapi_ticket: ticket,
