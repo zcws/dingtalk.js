@@ -363,7 +363,7 @@ export class Client {
    * @private
    * @see https://open-doc.dingtalk.com/doc2/detail.htm?spm=a219a.7386797.0.0.WXYE3B&treeId=171&articleId=104934&docType=1
    */
-  _normalizeUrl(url) {
+  private normalizeUrl(url) {
     // url 处理, 干掉 hash, query 需做 url decode
     const originUrlObj = Url.parse(url, true);
     const queryStr = Object.keys(originUrlObj.query).reduce((result, key) => {
@@ -388,7 +388,7 @@ export class Client {
       jsapi_ticket: ticket,
       noncestr: "Index#" + Date.now(),
       timestamp: Date.now(),
-      url: this._normalizeUrl(url)
+      url: this.normalizeUrl(url)
     }, opts);
 
     const signContent = Object
