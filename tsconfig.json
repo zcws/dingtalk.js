@@ -13,7 +13,8 @@
       "es2018"
     ],
     "noUnusedLocals": true,
-    "noUnusedParameters": true
+    "noUnusedParameters": true,
+    "declaration": true
   },
   "include": [
     "src"

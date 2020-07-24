@@ -48,5 +48,22 @@
   },
   "homepage": "https://github.com/imbooo/dingtalk.js",
   "author": "imbooo <imboooo@163.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "standard-version": {
+    "header": "# Changelog",
+    "types": [
+      {
+        "type": "feat",
+        "section": "Features"
+      },
+      {
+        "type": "fix",
+        "section": "Bug Fixes"
+      },
+      {
+        "type": "other",
+        "section": "Other"
+      }
+    ]
+  }
 }
