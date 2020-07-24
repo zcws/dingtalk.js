@@ -8,7 +8,8 @@ import { Extcontact } from "./api/extcontact";
 
 interface IOption {
   host?: string;
-  client: Client
+  appKey: string;
+  appSecret: string;
 }
 
 /*

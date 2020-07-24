@@ -1,11 +1,13 @@
 {
-  "name": "dingtalk.node",
-  "version": "0.1.0",
+  "name": "dingtalk.js",
+  "version": "0.2.0",
   "description": "dingTalk node sdk",
   "main": "dist/index.js",
   "files": [
-    "dist"
+    "dist",
+    "types"
   ],
+  "types": "types",
   "dependencies": {
     "agentkeepalive": "^3.4.1",
     "formstream": "^1.1.0",
@@ -28,7 +30,7 @@
     "node": ">=8.0.0"
   },
   "scripts": {
-    "build": "rm -rf dist && tsc -b",
+    "build": "rm -rf dist && rm -rf types && tsc -b",
     "test": "mocha 'test/**/*spec.js' --no-timeout",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "sv": "standard-version -r"
@@ -40,9 +42,30 @@
     "dingtalk"
   ],
   "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imbooo/dingtalk.js.git"
   },
   "bugs": {
+    "url": "https://github.com/imbooo/dingtalk.js/issues"
   },
+  "homepage": "https://github.com/imbooo/dingtalk.js",
   "author": "imbooo <imboooo@163.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "standard-version": {
+    "header": "# Changelog",
+    "types": [
+      {
+        "type": "feat",
+        "section": "Features"
+      },
+      {
+        "type": "fix",
+        "section": "Bug Fixes"
+      },
+      {
+        "type": "other",
+        "section": "Other"
+      }
+    ]
+  }
 }
