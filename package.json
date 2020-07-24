@@ -1,6 +1,6 @@
 {
-  "name": "dingtalk.node",
-  "version": "0.1.0",
+  "name": "dingtalk.js",
+  "version": "0.0.0",
   "description": "dingTalk node sdk",
   "main": "dist/index.js",
   "files": [
@@ -40,9 +40,13 @@
     "dingtalk"
   ],
   "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imbooo/dingtalk.js.git"
   },
   "bugs": {
+    "url": "https://github.com/imbooo/dingtalk.js/issues"
   },
+  "homepage": "https://github.com/imbooo/dingtalk.js",
   "author": "imbooo <imboooo@163.com>",
   "license": "MIT"
 }

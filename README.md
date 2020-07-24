@@ -10,7 +10,7 @@ $ npm i dingtalk.node --save
 ## Usage
 
 ```js
-import { DingTalk } from "dingtalk.node";
+import { DingTalk } from "dingtalk.js";
 const dingTalk = new DingTalk({
   appKey: '',
   appSecret: ''
@@ -54,7 +54,7 @@ const cache = {
 //   },
 // };
 
-import { DingTalk } from "node-dingtalk";
+import { DingTalk } from "dingtalk.js";
 const dingTalk = new DingTalk({
   cache,
   appKey: '',
