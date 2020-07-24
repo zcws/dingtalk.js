@@ -1,6 +1,10 @@
 # Changelog
+## [0.2.0](https://github.com/imbooo/dingtalk.js/compare/v0.1.1...v0.2.0) (2020-07-24)
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### Other
+
+* 添加.d.ts文件 ([97b4fb7](https://github.com/imbooo/dingtalk.js/commit/97b4fb7d557f6b6f051bf6329f7f4e706388c784))
 
 ### [0.1.1](https://github.com/imbooo/dingtalk.js/compare/v0.1.0...v0.1.1) (2020-07-24)
 
