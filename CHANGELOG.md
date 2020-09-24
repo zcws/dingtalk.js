@@ -1,4 +1,11 @@
 # Changelog
+### [0.3.2](https://github.com/imbooo/dingtalk.js/compare/v0.3.1...v0.3.2) (2020-09-24)
+
+
+### Features
+
+* 添加命名空间 ([422bfdf](https://github.com/imbooo/dingtalk.js/commit/422bfdf89f3f9b07299bea3615c20a19ed402f19))
+
 ### [0.3.1](https://github.com/imbooo/dingtalk.js/compare/v0.3.0...v0.3.1) (2020-09-24)
 
 
