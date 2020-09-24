@@ -92,8 +92,8 @@ export class User {
    * @param {String} id - 成员 userid
    * @param {Object} [opts] - 其他扩展参数
    */
-  async get(id: string, opts?): Promise<User> {
-    return this.client.get<User>("user/get", { ...opts, userid: id });
+  async get(id: string, opts?): Promise<IUser> {
+    return this.client.get<IUser>("user/get", { ...opts, userid: id });
   }
 
   /*
@@ -152,7 +152,7 @@ export class User {
    * 免登服务, 通过CODE换取用户身份
    * @param {String} code - 调用 js 获得的 code
    */
-  async getUserByCode(code: string): Promise<User> {
+  async getUserByCode(code: string): Promise<IUser> {
     const data = await this.client.get<UserInfo>("user/getuserinfo", { code });
     if (data.errcode) {
       throw new Error(data.errmsg);

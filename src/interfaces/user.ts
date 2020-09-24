@@ -12,7 +12,7 @@ type UserInfo = Err & {
   sys_level: number
 };
 
-interface User extends Err, StringField, BoolField {
+interface IUser extends Err, StringField, BoolField {
   hiredDate: number,
   department: number[],
   extattr: {
