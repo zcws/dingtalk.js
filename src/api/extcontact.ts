@@ -40,8 +40,8 @@ export class Extcontact {
       size: 20
     }, params);
 
-    const res = await this.client.get("topapi/extcontact/list", params, opts);
-    return res.results;
+    const { results } = await this.client.get("topapi/extcontact/list", params, opts);
+    return results;
   }
 
   /*
@@ -145,8 +145,8 @@ export class Extcontact {
   async get(userid, opts) {
     assert(userid, "user_id required");
     // Tips: 目前接口使用的是 user_id 和 userid 未统一名称
-    const res = await this.client.get("topapi/extcontact/get", { user_id: userid }, opts);
-    return res.result;
+    const { result } = await this.client.get("topapi/extcontact/get", { user_id: userid }, opts);
+    return result;
   }
 
   /*
@@ -193,7 +193,7 @@ export class Extcontact {
       size: 20
     }, params);
 
-    const res = await this.client.get("topapi/extcontact/listlabelgroups", params, opts);
-    return res.results;
+    const { results } = await this.client.get("topapi/extcontact/listlabelgroups", params, opts);
+    return results;
   }
-};
+}
