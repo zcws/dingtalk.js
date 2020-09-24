@@ -3,13 +3,13 @@
 const Mock = require('mockjs');
 const assert = require('power-assert');
 
-const DingTalk = require('../../../dist');
+const DingTalk = require('../../../dist').DingTalk;
 const options = require('./../../fixtures/test.config');
 
 describe('test/src/api/message.spec.js', () => {
   let dingtalk;
 
-  before(function* () {
+  before(async () => {
     dingtalk = new DingTalk(options);
   });
 
@@ -28,22 +28,20 @@ describe('test/src/api/message.spec.js', () => {
     return yield dingtalk.user.get(userId);
   }
 
-  it('send', function* () {
-    const user = yield createUser();
-
-    const result = yield dingtalk.message.send({
-      touser: user.userid,
-      agentid: options.agentid,
-      msgtype: 'text',
-      text: {
-        content: 'just a test',
-      },
+  it('send', async () => {
+    const result = await dingtalk.message.sendWorkNotice({
+      agent_id: 1,
+      userid_list: "11",
+      msg: {
+        msgtype: "text",
+        text: {
+          content: "测试消息推送"
+        }
+      }
     });
 
     console.log('%j', result);
     assert(!result.invaliduser);
-
-    yield dingtalk.user.delete(user.userid);
   });
 
   it('send not exist', function* () {
