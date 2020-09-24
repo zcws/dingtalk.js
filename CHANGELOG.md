@@ -1,4 +1,12 @@
 # Changelog
+### [0.3.1](https://github.com/imbooo/dingtalk.js/compare/v0.3.0...v0.3.1) (2020-09-24)
+
+
+### Bug Fixes
+
+* 修复extcontact类型问题 ([6852868](https://github.com/imbooo/dingtalk.js/commit/68528680a39d328dfaeef57b97a4a3d67d6237cc))
+* 修复getUserByCode返回数据类型 ([d04ef0e](https://github.com/imbooo/dingtalk.js/commit/d04ef0e7cfa554931a1fb0715ca4dc77a7e6d4d7))
+
 ## [0.3.0](https://github.com/imbooo/dingtalk.js/compare/v0.2.1...v0.3.0) (2020-09-24)
 
 
