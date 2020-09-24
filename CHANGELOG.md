@@ -1,4 +1,17 @@
 # Changelog
+## [0.3.0](https://github.com/imbooo/dingtalk.js/compare/v0.2.1...v0.3.0) (2020-09-24)
+
+
+### Features
+
+* 支持工作通知消息推送 ([979028a](https://github.com/imbooo/dingtalk.js/commit/979028a344545ff5b93408ef9cdb57c5b604ac36))
+* 支持通过code获取user信息。 ([d5436ab](https://github.com/imbooo/dingtalk.js/commit/d5436ab4ddf35bea1897cf3abfd5f49e8ca1b2d0))
+
+
+### Bug Fixes
+
+* getJSApiConfig,opts非必要参数。 ([a52409c](https://github.com/imbooo/dingtalk.js/commit/a52409ce7d73d10ec9ef0860c47d1be389af4000))
+
 ### [0.2.2](https://github.com/imbooo/dingtalk.js/compare/v0.2.1...v0.2.2) (2020-07-24)
 
 
