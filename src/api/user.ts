@@ -21,7 +21,7 @@ export class User {
    */
   async list(departmentId, isSimple, opts) {
     const api = isSimple ? "user/simplelist" : "user/list";
-    return this.client.get(api, Object.assign({}, { department_id: departmentId }, opts));
+    return this.client.get<any>(api, Object.assign({}, { department_id: departmentId }, opts));
   }
 
   /*
@@ -41,7 +41,7 @@ export class User {
     if (departmentId) {
       departmentIdList = [departmentId];
     } else {
-      const departmentList = await this.client.get("department/list");
+      const departmentList = await this.client.get<{ department: Array<{ id: number }> }>("department/list");
       departmentIdList = departmentList.department.map(item => item.id);
       queryCount++;
     }
@@ -86,19 +86,14 @@ export class User {
     };
   }
 
-  /**
+  /*
    * 获取成员详情
    *  - user/get
    * @param {String} id - 成员 userid
    * @param {Object} [opts] - 其他扩展参数
-   * @return {Object} 成员信息, 不存在时返回 undefined
    */
-  async get(id, opts) {
-    try {
-      return await this.client.get("user/get", Object.assign({ userid: id }, opts));
-    } catch (err) {
-      return undefined;
-    }
+  async get(id: string, opts?): Promise<User> {
+    return this.client.get<User>("user/get", { ...opts, userid: id });
   }
 
   /*
@@ -154,13 +149,16 @@ export class User {
   }
 
   /*
-   * 免登服务, 通过CODE换取用户身份 user/getuserinfo
+   * 免登服务, 通过CODE换取用户身份
    * @param {String} code - 调用 js 获得的 code
-   * @return {Object} 成员信息 { userid, deviceId, ... }
-   * @see https://open-doc.dingtalk.com/doc2/detail.htm?treeId=172&articleId=104969&docType=1
    */
-  async getUserInfoByCode(code) {
-    return this.client.get("user/getuserinfo", { code });
+  async getUserByCode(code: string): Promise<User> {
+    const data = await this.client.get<UserInfo>("user/getuserinfo", { code });
+    if (data.errcode) {
+      throw new Error(data.errmsg);
+    }
+
+    return this.get(data.userid);
   }
 
   /*
@@ -172,4 +170,4 @@ export class User {
   async getByMobile(mobile) {
     return this.client.get("user/get_by_mobile", { mobile });
   }
-};
+}

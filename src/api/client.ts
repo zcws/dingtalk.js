@@ -187,7 +187,7 @@ export class Client {
    * @param {Object} [opts] - urllib opts
    * @return {Object} response.data
    */
-  async get(api, data?, opts?) {
+  async get<T extends object>(api, data?, opts?): Promise<T> {
     assert(api, "api path required");
     let accessToken = opts && opts.accessToken;
     if (!accessToken) {
@@ -345,7 +345,11 @@ export class Client {
   async getJSApiTicket() {
     let ticket = await this.cache.get("jsapiTicket");
     if (!ticket) {
-      const response = await this.get("get_jsapi_ticket", { type: "jsapi" });
+      type Ticket = {
+        ticket,
+        expires_in: number
+      };
+      const response = await this.get<Ticket>("get_jsapi_ticket", { type: "jsapi" });
       const jsapiTicketExpireTime = Date.now() + Math.min(response.expires_in * 1000, this.options.jsapiTicketLifeTime);
       ticket = response.ticket;
       await this.cache.set("jsapiTicket", ticket, jsapiTicketExpireTime);

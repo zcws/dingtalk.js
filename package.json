@@ -29,6 +29,9 @@
   "engines": {
     "node": ">=8.0.0"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "scripts": {
     "build": "rm -rf dist && rm -rf types && tsc -b",
     "test": "mocha 'test/**/*spec.js' --no-timeout",
