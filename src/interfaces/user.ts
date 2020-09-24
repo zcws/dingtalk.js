@@ -12,15 +12,17 @@ type UserInfo = Err & {
   sys_level: number
 };
 
-interface IUser extends Err, StringField, BoolField {
-  hiredDate: number,
-  department: number[],
-  extattr: {
-    [key: string]: string | number
-  },
-  roles: Array<{
-    id: number,
-    name: string,
-    groupName: string
-  }>
+namespace DingTalk {
+ export interface IUser extends Err, StringField, BoolField {
+    hiredDate: number,
+    department: number[],
+    extattr: {
+      [key: string]: string | number
+    },
+    roles: Array<{
+      id: number,
+      name: string,
+      groupName: string
+    }>
+  }
 }

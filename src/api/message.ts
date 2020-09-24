@@ -1,9 +1,11 @@
+///<reference path="../interfaces/message.ts"/>
 /*
  * 企业消息相关 API
  * @type {Message}
  */
 import * as assert from "assert";
 import { Client } from "./client";
+import WorkNoticeOptions = DingTalk.WorkNoticeOptions;
 
 export class Message {
   constructor(private client: Client) {

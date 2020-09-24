@@ -1,6 +1,8 @@
+///<reference path="../interfaces/user.ts"/>
 import { Client } from "./client";
 import * as pall from "p-all";
 import * as assert from "assert";
+import IUser = DingTalk.IUser;
 
 /*
  * 成员相关 API
