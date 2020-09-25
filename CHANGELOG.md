@@ -1,4 +1,11 @@
 # Changelog
+## [0.4.0](https://github.com/imbooo/dingtalk.js/compare/v0.3.2...v0.4.0) (2020-09-25)
+
+
+### Features
+
+* 完善接口数据类型描述。 ([81061a5](https://github.com/imbooo/dingtalk.js/commit/81061a5b1e28ada16630b570249ac0b1a0785992))
+
 ### [0.3.2](https://github.com/imbooo/dingtalk.js/compare/v0.3.1...v0.3.2) (2020-09-24)
 
 
