@@ -1,7 +1,18 @@
 namespace DingTalk {
   export enum MessageType {
     TEXT = "text",
+    LINK = "link",
     IMAGE = "image"
+  }
+
+  export interface Link {
+    msgtype: MessageType.LINK,
+    link: {
+      text: string,
+      title: string,
+      picUrl: string,
+      messageUrl: string
+    }
   }
 
   export interface Image {
@@ -18,7 +29,7 @@ namespace DingTalk {
     }
   }
 
-  export type Msg = Text | Image;
+  export type Msg = Text | Image | Link;
 
   export interface WorkNoticeOptions {
     msg: Msg;
