@@ -1,6 +1,6 @@
 {
   "name": "dingtalk.js",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "dingTalk node sdk",
   "main": "lib/index.js",
   "files": [

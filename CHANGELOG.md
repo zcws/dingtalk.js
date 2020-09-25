@@ -1,4 +1,11 @@
 # Changelog
+### [0.5.4](https://github.com/imbooo/dingtalk.js/compare/v0.5.0...v0.5.4) (2020-09-25)
+
+
+### Features
+
+* 调整导出数据类型 ([9f92cc1](https://github.com/imbooo/dingtalk.js/commit/9f92cc186d51f78ea85795ee8f08374339d19c8a))
+
 ## [0.5.0](https://github.com/imbooo/dingtalk.js/compare/v0.4.0...v0.5.0) (2020-09-25)
 
 
