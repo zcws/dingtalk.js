@@ -1,4 +1,11 @@
 # Changelog
+## [0.5.0](https://github.com/imbooo/dingtalk.js/compare/v0.4.0...v0.5.0) (2020-09-25)
+
+
+### Features
+
+* 支持Link类型消息发送 ([75f5346](https://github.com/imbooo/dingtalk.js/commit/75f5346ac0f714b83208bf12090c0f1d5b64e2b9))
+
 ## [0.4.0](https://github.com/imbooo/dingtalk.js/compare/v0.3.2...v0.4.0) (2020-09-25)
 
 
