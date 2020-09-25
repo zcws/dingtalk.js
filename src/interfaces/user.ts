@@ -6,14 +6,19 @@ type Err = {
 type BoolField = Record<"isBoss" | "isSenior" | "active" | "isAdmin" | "isHide", boolean>
 type StringField = Record<"unionid" | "remark" | "userid" | "tel" | "workPlace" | "email" | "orderInDepts" | "mobile" | "avatar" | "jobnumber" | "name" | "stateCode" | "position", string>
 
-type UserInfo = Err & {
-  userid: string,
-  is_sys: boolean,
-  sys_level: number
-};
 
 namespace DingTalk {
- export interface IUser extends Err, StringField, BoolField {
+  export interface GetUserId extends Err {
+    userid: string;
+  }
+
+  export interface UserInfo extends GetUserId {
+    userid: string,
+    is_sys: boolean,
+    sys_level: number
+  }
+
+  export interface IUser extends Err, StringField, BoolField {
     hiredDate: number,
     department: number[],
     extattr: {

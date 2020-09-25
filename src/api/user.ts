@@ -2,7 +2,6 @@
 import { Client } from "./client";
 import * as pall from "p-all";
 import * as assert from "assert";
-import IUser = DingTalk.IUser;
 
 /*
  * 成员相关 API
@@ -94,8 +93,8 @@ export class User {
    * @param {String} id - 成员 userid
    * @param {Object} [opts] - 其他扩展参数
    */
-  async get(id: string, opts?): Promise<IUser> {
-    return this.client.get<IUser>("user/get", { ...opts, userid: id });
+  async get(id: string, opts?) {
+    return this.client.get<DingTalk.IUser>("user/get", { ...opts, userid: id });
   }
 
   /*
@@ -154,8 +153,8 @@ export class User {
    * 免登服务, 通过CODE换取用户身份
    * @param {String} code - 调用 js 获得的 code
    */
-  async getUserByCode(code: string): Promise<IUser> {
-    const data = await this.client.get<UserInfo>("user/getuserinfo", { code });
+  async getUserByCode(code: string) {
+    const data = await this.client.get<DingTalk.UserInfo>("user/getuserinfo", { code });
     if (data.errcode) {
       throw new Error(data.errmsg);
     }
@@ -165,11 +164,8 @@ export class User {
 
   /*
    * 根据手机号获取成员 userid
-   * @param {String} mobile 手机号
-   * @return {Object} 成员信息 { userid }
-   * @see https://open-doc.dingtalk.com/doc2/detail.htm?treeId=172&articleId=105418&docType=1
    */
-  async getByMobile(mobile) {
-    return this.client.get("user/get_by_mobile", { mobile });
+  async getByMobile(mobile: string | number) {
+    return this.client.get<DingTalk.GetUserId>("user/get_by_mobile", { mobile });
   }
 }
