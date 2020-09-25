@@ -1,7 +1,7 @@
-///<reference path="../interfaces/user.ts"/>
 import { Client } from "./client";
 import * as pall from "p-all";
 import * as assert from "assert";
+import { GetUserId, IUser, UserInfo } from "../interfaces/user";
 
 /*
  * 成员相关 API
@@ -20,7 +20,7 @@ export class User {
    * @param {Object} [opts] - 其他扩展参数
    * @return {Array} 成员列表 { userlist: [] }
    */
-  async list(departmentId, isSimple, opts) {
+  async list(departmentId: string, isSimple: boolean, opts: object) {
     const api = isSimple ? "user/simplelist" : "user/list";
     return this.client.get<any>(api, Object.assign({}, { department_id: departmentId }, opts));
   }
@@ -33,7 +33,7 @@ export class User {
    *  - concurrency {Number} 并发请求数, 默认为 5
    * @return {Object} 成员列表 { userlist: [], queryCount }
    */
-  async listAll(departmentId, isSimple, opts) {
+  async listAll(departmentId: string, isSimple: boolean, opts) {
     opts = opts || {};
     let queryCount = 0;
 
@@ -50,6 +50,7 @@ export class User {
     // 并发请求
     const threads = departmentIdList.map(departmentId => {
       const self = this;
+
       return async function () {
         let queryCount = 0;
         let result = [];
@@ -93,8 +94,8 @@ export class User {
    * @param {String} id - 成员 userid
    * @param {Object} [opts] - 其他扩展参数
    */
-  async get(id: string, opts?) {
-    return this.client.get<DingTalk.IUser>("user/get", { ...opts, userid: id });
+  async get(id: string, opts?: object) {
+    return this.client.get<IUser>("user/get", { ...opts, userid: id });
   }
 
   /*
@@ -116,7 +117,7 @@ export class User {
    * @param {Object} opts 成员信息 { name, userid, ... }
    * @return {Object} 操作结果
    */
-  async update(opts) {
+  async update(opts: { name: string, userid: string }) {
     assert(opts.userid, "options.userid required");
     assert(opts.name, "options.name required");
     return this.client.post("user/update", opts);
@@ -129,7 +130,7 @@ export class User {
    * @param {String/Array} id - 成员 userid, 支持批量删除
    * @return {Object} 操作结果
    */
-  async delete(id) {
+  async delete(id: string | string[]) {
     assert(id, "user id required");
     if (Array.isArray(id)) {
       // 原子化, 一个失败则全部都不会删除
@@ -145,7 +146,7 @@ export class User {
    * @param {String} unionid - 即 user.openId
    * @return {Object} 返回 { userid }
    */
-  async getUseridByUnionid(unionid) {
+  async getUseridByUnionid(unionid: string) {
     return this.client.get("user/getUseridByUnionid", { unionid });
   }
 
@@ -154,7 +155,7 @@ export class User {
    * @param {String} code - 调用 js 获得的 code
    */
   async getUserByCode(code: string) {
-    const data = await this.client.get<DingTalk.UserInfo>("user/getuserinfo", { code });
+    const data = await this.client.get<UserInfo>("user/getuserinfo", { code });
     if (data.errcode) {
       throw new Error(data.errmsg);
     }
@@ -166,6 +167,6 @@ export class User {
    * 根据手机号获取成员 userid
    */
   async getByMobile(mobile: string | number) {
-    return this.client.get<DingTalk.GetUserId>("user/get_by_mobile", { mobile });
+    return this.client.get<GetUserId>("user/get_by_mobile", { mobile });
   }
 }

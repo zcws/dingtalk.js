@@ -1,11 +1,10 @@
-///<reference path="../interfaces/message.ts"/>
 /*
  * 企业消息相关 API
  * @type {Message}
  */
 import * as assert from "assert";
 import { Client } from "./client";
-import WorkNoticeOptions = DingTalk.WorkNoticeOptions;
+import { WorkNoticeOptions } from "../interfaces/message";
 
 export class Message {
   constructor(private client: Client) {
@@ -28,7 +27,7 @@ export class Message {
    * @param {String} messageId - 消息ID
    * @return {Object} 消息状态 { read: [userid, ...], unread: [] }
    */
-  async listMessageStatus(messageId) {
+  async listMessageStatus(messageId: string) {
     assert(messageId, "messageId required");
     return this.client.post("message/list_message_status", { messageId });
   }

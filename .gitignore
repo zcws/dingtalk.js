@@ -7,5 +7,5 @@ run/
 .DS_Store
 *.swp
 src/**/*.js
-dist
+lib
 types

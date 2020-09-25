@@ -6,6 +6,9 @@ import { Auth } from "./api/auth";
 import { Media } from "./api/media";
 import { Extcontact } from "./api/extcontact";
 
+export * from "./interfaces/user";
+export * from "./interfaces/message";
+
 interface IOption {
   host?: string;
   appKey: string;

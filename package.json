@@ -1,10 +1,10 @@
 {
   "name": "dingtalk.js",
-  "version": "0.5.0",
+  "version": "0.5.3",
   "description": "dingTalk node sdk",
-  "main": "dist/index.js",
+  "main": "lib/index.js",
   "files": [
-    "dist",
+    "lib",
     "types"
   ],
   "types": "types",
@@ -30,7 +30,7 @@
     "node": ">=8.0.0"
   },
   "scripts": {
-    "build": "rm -rf dist && rm -rf types && tsc -b",
+    "build": "rm -rf lib && rm -rf types && tsc -b",
     "test": "mocha 'test/**/*spec.js' --no-timeout",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "sv": "standard-version -r"
