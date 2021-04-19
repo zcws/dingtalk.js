@@ -1,4 +1,17 @@
 # Changelog
+### [0.7.4](https://github.com/imbooo/dingtalk.js/compare/v0.7.0...v0.7.4) (2021-04-19)
+
+
+### Features
+
+* 导出getJSApiConfig方法 ([7763aeb](https://github.com/imbooo/dingtalk.js/commit/7763aeb9c7920a158df779f50dd268bd85e2c9a3))
+* 添加考勤API ([fe0b3b2](https://github.com/imbooo/dingtalk.js/commit/fe0b3b21f2c838aa00faf9283808fd110d220219))
+
+
+### Bug Fixes
+
+* 修复类型描述 ([416463f](https://github.com/imbooo/dingtalk.js/commit/416463f5f8b7e845249c103b070a41cdd29b6752))
+
 ## [0.7.0](https://github.com/imbooo/dingtalk.js/compare/v0.5.4...v0.7.0) (2021-04-19)
 
 
