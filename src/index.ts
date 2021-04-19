@@ -6,6 +6,7 @@ import { Auth } from "./api/auth";
 import { Media } from "./api/media";
 import { Extcontact } from "./api/extcontact";
 import { HRM } from "./api/hrm";
+import { Process } from "./api/process";
 
 export * from "./interfaces/user";
 export * from "./interfaces/message";
@@ -26,10 +27,11 @@ export class DingTalk {
   user: User;
   auth: Auth;
   media: Media;
-  client: Client;
+  process: Process;
   message: Message;
   extcontact: Extcontact;
   department: Department;
+  private readonly client: Client;
 
   constructor(options: IOption) {
     options.host = options.host || "https://oapi.dingtalk.com";
@@ -41,5 +43,6 @@ export class DingTalk {
     this.auth = new Auth(this.client);
     this.extcontact = new Extcontact(this.client);
     this.hrm = new HRM(this.client, options);
+    this.process = new Process(this.client);
   }
 }

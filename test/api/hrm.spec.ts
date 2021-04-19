@@ -1,7 +1,7 @@
-import { DingTalk } from "../src";
-import { ok } from "power-assert";
+import { DingTalk } from "../../src";
+import { assert } from "chai";
 
-describe("DingTalk", () => {
+describe("HRM", () => {
   let dingTalk: DingTalk;
   before(() => {
     dingTalk = new DingTalk({
@@ -15,26 +15,25 @@ describe("DingTalk", () => {
   const userList = [];
   it("getOnJobList", async () => {
     const res = await dingTalk.hrm.getOnJobList({ offset: 0, size: 10, status_list: "2" });
-    ok(Array.isArray(res.data_list));
+    assert.isArray(res.data_list);
     userList.push(...res.data_list);
   });
 
 
   it("getDimissionList", async () => {
     const res = await dingTalk.hrm.getDimissionList({ offset: 0, size: 10, status_list: "2" });
-    ok(Array.isArray(res.data_list));
+    assert.isArray(res.data_list);
   });
 
   let roster;
   it("getRosterList", async () => {
     const res = await dingTalk.hrm.getRosterList(userList);
-    ok(Array.isArray(res));
+    Array.isArray(res);
     [roster] = res;
   });
 
 
-  it("updateRosterById", async () => {
-    console.log(roster);
+  it.skip("updateRosterById", async () => {
     if (!roster) {
       return;
     }
@@ -52,6 +51,6 @@ describe("DingTalk", () => {
     });
 
     const res = await dingTalk.hrm.updateRosterById(userid, groups.splice(0, 1));
-    ok(typeof res === "boolean");
+    assert.isBoolean(res);
   });
 });

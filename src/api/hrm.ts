@@ -1,5 +1,6 @@
 import { Client } from "./client";
 import { IOption } from "../index";
+import { Base } from "./base";
 
 type Options = {
   size: number;
@@ -23,14 +24,6 @@ type RosterInfo = {
   }[]
 }
 
-type Result<T> = {
-  errmsg: string;
-  errcode: string;
-  success: boolean;
-  request_id: string;
-  result: T
-};
-
 type Group = {
   group_id: string;
   sections: {
@@ -48,22 +41,24 @@ enum API {
 /*
  * 职能人事 API
  */
-export class HRM {
-  constructor(private readonly client: Client, private readonly options: IOption) {
+export class HRM extends Base {
+  protected readonly uri = 'topapi/smartwork/hrm/employee';
+  constructor(client: Client, private readonly options: IOption) {
+    super(client);
   }
 
   /*
    * 在职员工列表
    */
   async getOnJobList(data: Options) {
-    return this.request<EmpListRes>(API.QueryOnJob, data);
+    return this.post<EmpListRes>(API.QueryOnJob, data);
   }
 
   /*
    * 离职员工列表
    */
   async getDimissionList(data: Options) {
-    return this.request<EmpListRes>(API.QueryDimission, data);
+    return this.post<EmpListRes>(API.QueryDimission, data);
   }
 
   /*
@@ -77,7 +72,7 @@ export class HRM {
       data.field_filter_list = field_filter_list?.join(",");
     }
 
-    return this.request<RosterInfo[]>(API.RosterList, data);
+    return this.post<RosterInfo[]>(API.RosterList, data);
   }
 
   /*
@@ -95,15 +90,6 @@ export class HRM {
       }
     };
 
-    return this.request<boolean>(API.RosterList, data);
-  }
-
-  private async request<T>(api: string, data): Promise<T> {
-    const res = await this.client.post<Result<T>>(`topapi/smartwork/hrm/employee/${api}`, data);
-    if (res.success) {
-      return res.result;
-    } else {
-      throw new Error(res.errmsg);
-    }
+    return this.post<boolean>(API.RosterList, data);
   }
 }
