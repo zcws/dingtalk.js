@@ -1,4 +1,12 @@
 # Changelog
+## [0.7.0](https://github.com/imbooo/dingtalk.js/compare/v0.5.4...v0.7.0) (2021-04-19)
+
+
+### Features
+
+* 添加工作流API ([2861264](https://github.com/imbooo/dingtalk.js/commit/286126490e83227b98ed8d00d7bacbada8d44bc0))
+* 添加智能人事API ([37f01bc](https://github.com/imbooo/dingtalk.js/commit/37f01bcd94d4e4ed147f5d17f5d71655986c54eb))
+
 ### [0.5.4](https://github.com/imbooo/dingtalk.js/compare/v0.5.0...v0.5.4) (2020-09-25)
 
 
