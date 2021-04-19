@@ -5,12 +5,14 @@ import { Message } from "./api/message";
 import { Auth } from "./api/auth";
 import { Media } from "./api/media";
 import { Extcontact } from "./api/extcontact";
+import { HRM } from "./api/hrm";
 
 export * from "./interfaces/user";
 export * from "./interfaces/message";
 
-interface IOption {
+export interface IOption {
   host?: string;
+  agentId?: string;
   appKey: string;
   appSecret: string;
 }
@@ -20,6 +22,7 @@ interface IOption {
  * @type {DingTalk}
  */
 export class DingTalk {
+  hrm: HRM;
   user: User;
   auth: Auth;
   media: Media;
@@ -37,5 +40,6 @@ export class DingTalk {
     this.media = new Media(this.client, options);
     this.auth = new Auth(this.client);
     this.extcontact = new Extcontact(this.client);
+    this.hrm = new HRM(this.client, options);
   }
 }

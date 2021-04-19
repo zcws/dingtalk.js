@@ -27,7 +27,7 @@ export class Client {
   /*
    * Client 构造函数
    * @param {Object} options 配置参数
-   *  - {String} corpId     - 应用corpId
+   *  - {String} agentId    - 应用agentId
    *  - {String} appKey     - 应用appKey
    *  - {String} appSecret  - 应用appSecret
    *  - {String} host - 钉钉服务接口地址
@@ -36,9 +36,9 @@ export class Client {
    */
   constructor(private readonly options) {
     // assert(options.corpId, "options.corpId required");
+    assert(options.host, "options.host required");
     assert(options.appKey, "options.appKey required");
     assert(options.appSecret, "options.应用appSecret required");
-    assert(options.host, "options.host required");
 
     this.options = Object.assign({
       accessTokenLifeTime: (7200 - 1000) * 1000,
@@ -204,7 +204,7 @@ export class Client {
    * @param {Object} [opts] - urllib opts
    * @return {Object} response.data
    */
-  async post(api, data, opts?) {
+  async post<T>(api, data, opts?): Promise<T> {
     assert(api, "api path required");
     let accessToken = opts && opts.accessToken;
     if (!accessToken) {
