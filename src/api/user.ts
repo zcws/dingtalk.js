@@ -1,4 +1,4 @@
-import { Client } from "./client";
+import { Client } from "../client";
 import * as pall from "p-all";
 import * as assert from "assert";
 import { GetUserId, IUser, UserInfo } from "../interfaces/user";

@@ -1,4 +1,4 @@
-import { Client } from "./client";
+import { Client } from "../client";
 import * as assert from "assert";
 
 const fs = require('fs');

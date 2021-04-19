@@ -1,4 +1,4 @@
-import { Client } from "./api/client";
+import { Client } from "./client";
 import { Department } from "./api/department";
 import { User } from "./api/user";
 import { Message } from "./api/message";
@@ -7,6 +7,7 @@ import { Media } from "./api/media";
 import { Extcontact } from "./api/extcontact";
 import { HRM } from "./api/hrm";
 import { Process } from "./api/process";
+import { Attendance } from "./api/attendance";
 
 export * from "./interfaces/user";
 export * from "./interfaces/message";
@@ -29,6 +30,7 @@ export class DingTalk {
   media: Media;
   process: Process;
   message: Message;
+  attendance: Attendance;
   extcontact: Extcontact;
   department: Department;
   private readonly client: Client;
@@ -44,5 +46,6 @@ export class DingTalk {
     this.extcontact = new Extcontact(this.client);
     this.hrm = new HRM(this.client, options);
     this.process = new Process(this.client);
+    this.attendance = new Attendance(this.client);
   }
 }

@@ -1,6 +1,6 @@
 "use strict";
 
-import { Client } from "./client";
+import { Client } from "../client";
 
 /*
  * 授权相关 API

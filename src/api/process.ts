@@ -1,5 +1,5 @@
-import { Client } from "./client";
-import { Base } from "./base";
+import { Client } from "../client";
+import { Base } from "../base";
 
 export type ProcessInstance = {
   title: string;

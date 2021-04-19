@@ -3,7 +3,7 @@
  * @type {Message}
  */
 import * as assert from "assert";
-import { Client } from "./client";
+import { Client } from "../client";
 import { WorkNoticeOptions } from "../interfaces/message";
 
 export class Message {

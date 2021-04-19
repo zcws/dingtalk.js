@@ -3,7 +3,7 @@
  * https://open-doc.dingtalk.com/microapp/serverapi2/nb93oa
  * @type {Extcontact}
  */
-import { Client } from "./client";
+import { Client } from "../client";
 import * as assert from "assert";
 
 export class Extcontact {

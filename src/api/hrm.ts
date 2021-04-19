@@ -1,6 +1,6 @@
-import { Client } from "./client";
+import { Client } from "../client";
 import { IOption } from "../index";
-import { Base } from "./base";
+import { Base } from "../base";
 
 type Options = {
   size: number;
