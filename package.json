@@ -34,7 +34,8 @@
     "build": "rm -rf lib && rm -rf types && tsc -b",
     "test": "mocha test",
     "lint": "tslint -p tsconfig.json -c tslint.json",
-    "sv": "standard-version -r"
+    "sv": "standard-version -r",
+    "prepublishOnly": "npm run build"
   },
   "ci": {
     "version": "8, 10"

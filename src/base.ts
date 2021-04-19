@@ -12,7 +12,7 @@ type Result<T> = {
 export abstract class Base {
   protected readonly uri: string;
 
-  protected constructor(private readonly client: Client) {
+  protected constructor(protected readonly client: Client) {
   }
 
   protected async post<T>(api: string, body: { [k: string]: unknown }): Promise<T> {
@@ -25,6 +25,8 @@ export abstract class Base {
       return res.success;
     } else if (res.process_instance) {
       return res.process_instance;
+    } else {
+      return res as any;
     }
   }
 }

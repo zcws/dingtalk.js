@@ -11,7 +11,7 @@ type GetColumnValOptions = {
 type ColumnVal = {
   fixed_value?: string;
   column_vals: {
-    date: Date;
+    date: string;
     value: string;
   }[];
   column_vo: {

@@ -1,12 +1,14 @@
 import { Client } from "../client";
 import * as assert from "assert";
+import { Base } from "../base";
 
 /*
  * 部门相关 API
  * @type {Department}
  */
-export class Department {
-  constructor(private readonly client: Client) {
+export class Department extends Base {
+  constructor(client: Client) {
+    super(client);
   }
 
   /*
@@ -22,17 +24,31 @@ export class Department {
   /*
    * 获取部门详情
    *  - department/get
-   * @param {String} id 部门ID
-   * @param {Object} [opts] - 其他参数
-   * @return {Object} 部门信息, 不存在时返回 undefined
    */
-  async get(id, opts) {
+  async get(id: string, language: string = "zh_CN") {
     assert(id, "department id required");
-    try {
-      return await this.client.get("department/get", Object.assign({ id }, opts));
-    } catch (err) {
-      return undefined;
-    }
+    type Dept = {
+      name: string;
+      tags: string;
+      order: number;
+      dept_id: string;
+      parent_id: number;
+      hide_dept: boolean;
+      outer_dept: boolean;
+      dept_permits: number[];
+      user_permits: string[];
+      org_dept_owner: string;
+      source_identifier: string;
+      dept_group_chat_id: string;
+      auto_add_user: boolean;
+      from_union_org: boolean;
+      create_dept_group: boolean;
+      group_contain_sub_dept: boolean;
+      dept_manager_userid_list: string[];
+      outer_permit_depts: number[];
+      outer_permit_users: string[];
+    };
+    return this.post<Dept>("topapi/v2/department/get", { id, language });
   }
 
   /*
