@@ -48,4 +48,8 @@ export class DingTalk {
     this.process = new Process(this.client);
     this.attendance = new Attendance(this.client);
   }
+
+  async getJSApiConfig(url: string, opts?) {
+    return this.client.getJSApiConfig(url, opts);
+  }
 }

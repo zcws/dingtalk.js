@@ -13,7 +13,7 @@ const URLLIB = Symbol("URLLIB");
 const CACHE = Symbol("CACHE");
 const LRU = Symbol("LRU");
 
-interface IJSApiConfig {
+export interface IJSApiConfig {
   signature: string;
   nonceStr: string;
   timeStamp: number;
