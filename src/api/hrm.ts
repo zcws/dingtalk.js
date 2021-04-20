@@ -5,7 +5,7 @@ import { Base } from "../base";
 type Options = {
   size: number;
   offset: number;
-  status_list: "2" | "3" | "5" | "-1"
+  status_list: string
 }
 
 type EmpListRes = {

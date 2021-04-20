@@ -25,7 +25,7 @@ export class Department extends Base {
    * 获取部门详情
    *  - department/get
    */
-  async get(id: string, language: string = "zh_CN") {
+  async get(id: number, language: string = "zh_CN") {
     assert(id, "department id required");
     type Dept = {
       name: string;
