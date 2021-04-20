@@ -1,4 +1,11 @@
 # Changelog
+### [0.7.5](https://github.com/imbooo/dingtalk.js/compare/v0.7.4...v0.7.5) (2021-04-20)
+
+
+### Bug Fixes
+
+* 修复参数类型描述 ([93b52f9](https://github.com/imbooo/dingtalk.js/commit/93b52f9ad3a13e95ec14e37d568a603edda17df9))
+
 ### [0.7.4](https://github.com/imbooo/dingtalk.js/compare/v0.7.0...v0.7.4) (2021-04-19)
 
 
