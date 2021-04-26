@@ -7,6 +7,7 @@ import { Base } from "../base";
  * @type {Department}
  */
 export class Department extends Base {
+  protected readonly uri = 'topapi/v2/department';
   constructor(client: Client) {
     super(client);
   }
@@ -48,7 +49,7 @@ export class Department extends Base {
       outer_permit_depts: number[];
       outer_permit_users: string[];
     };
-    return this.post<Dept>("topapi/v2/department/get", { id, language });
+    return this.post<Dept>("get", { id, language });
   }
 
   /*
